@@ -6,6 +6,15 @@ Artifact-Deployer is a small tool designed to deploy Jenkins artifacts to remote
 * List the latest builds info
 * Deploy a specific version of build to remote via SSH
 
+### Getting started
+Copy env.example to .env, put settings.
+
+```bash
+make install
+source venv/bin/activate
+make run
+```
+
 ### Requires
 * Python3
 * Virtualenv
