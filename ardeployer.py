@@ -4,8 +4,10 @@
 """ Jenkins Artifact Deployer """
 
 import sys
+import ardeployer.cli
 
 if __name__ == "__main__":
     if not sys.version_info >= (3, 6):
         sys.exit(1)
-    print("It works")
+    ardeployer.cli.run()
+

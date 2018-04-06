@@ -6,6 +6,7 @@ help:
 	@echo ""
 	@echo "  clean              Clean venv"
 	@echo "  install            Init venv"
+	@echo "  run                Execute run command"
 	@echo ""
 
 .PHONY: clean
@@ -16,4 +17,7 @@ clean:
 install:
 	@exec virtualenv --no-site-packages venv
 
+.PHONY: run
+run:
+	@exec python ardeployer.py run
 
