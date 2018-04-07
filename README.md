@@ -1,4 +1,4 @@
-# Artifact-Deployer
+# Artifact-Deployer [![Build Status](https://travis-ci.org/pipizhang/artifact-deployer.svg?branch=master)](https://travis-ci.org/pipizhang/artifact-deployer)
 
 ![screenshot](https://github.com/pipizhang/artifact-deployer/blob/master/screenshots/00.png)
 
