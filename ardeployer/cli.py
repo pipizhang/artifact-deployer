@@ -5,6 +5,7 @@ import getopt
 from texttable import Texttable
 from typing import List, Optional
 from .jenkins import *
+from .config import config_load
 
 VERSION = '1.0'
 
@@ -29,8 +30,9 @@ class CLI:
 
     def run_command(self, args: List[str]) -> None:
         #print("run ....")
+        config_load()
         resJob = get_job()
-        builds = [] # type:List[BuildResponse]
+        builds = [] # type: List[BuildResponse]
         for build in resJob.get_last_builds(5):
             builds.append(get_build(build['api']))
             #print(build['api'])

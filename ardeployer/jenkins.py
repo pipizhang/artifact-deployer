@@ -2,14 +2,13 @@ import sys
 import requests
 from typing import Dict
 from .response import JobResponse, BuildResponse
-from .settings import *
+from .config import *
 
 def http_get(url: str) -> requests.Response:
-    _timeout = HTTP_TIMEOUT
-    return requests.get(url, auth=(JINKENS_USER, JINKENS_PASS), timeout=_timeout)
+    return requests.get(url, auth=(config_get('JINKENS_USER'), config_get('JINKENS_PASS')), timeout=config_get('HTTP_TIMEOUT'))
 
 def get_job() -> JobResponse:
-    url = '{}/job/{}/job/master/api/json'.format(JINKENS_URL, JINKENS_JOB)
+    url = '{}/job/{}/job/master/api/json'.format(config_get('JINKENS_URL'), config_get('JINKENS_JOB'))
     res  = http_get(url)
     return JobResponse(res)
 

@@ -6,6 +6,7 @@ help:
 	@echo ""
 	@echo "  clean              Clean venv"
 	@echo "  install            Init venv"
+	@echo "  test               Run tests"
 	@echo "  run                Execute run command"
 	@echo ""
 
@@ -16,6 +17,10 @@ clean:
 .PHONY: install
 install:
 	@exec virtualenv --no-site-packages venv
+
+.PHONY: test
+test:
+	@exec pytest
 
 .PHONY: run
 run:
