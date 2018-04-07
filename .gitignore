@@ -3,6 +3,7 @@ __pycache__/
 *$py.class
 .env
 .mypy_cache/
+.pytest_cache/
 .sw?
 venv
 
