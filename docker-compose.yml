@@ -1,0 +1,16 @@
+version: "3"
+services:
+    app:
+        image: peterzhang/artifact-deployer
+        container_name: ardeployer
+        hostname: ardeployer
+        stdin_open: true
+        tty: true
+        working_dir: /usr/src/app
+        #command: python ardeployer.py run
+        command: bash
+        environment:
+            - JENKINS_URL=${JENKINS_URL}
+            - JENKINS_JOB=${JENKINS_JOB}
+            - JENKINS_USER=${JENKINS_USER}
+            - JENKINS_PASS=${JENKINS_PASS}
