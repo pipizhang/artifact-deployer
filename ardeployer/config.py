@@ -3,10 +3,10 @@ from typing import Any
 from dotenv import load_dotenv
 
 settings = {
-        'JINKENS_URL': '',
-        'JINKENS_JOB': '',
-        'JINKENS_USER': '',
-        'JINKENS_PASS': '',
+        'JENKINS_URL': '',
+        'JENKINS_JOB': '',
+        'JENKINS_USER': '',
+        'JENKINS_PASS': '',
         'HTTP_TIMEOUT': 15
 }
 
