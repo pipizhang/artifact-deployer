@@ -6,6 +6,7 @@ from texttable import Texttable
 from typing import List, Optional
 from .jenkins import *
 from .config import config_load
+from .command import RunCommand, ListCommand
 
 VERSION = '1.0'
 
@@ -18,35 +19,26 @@ class CLI:
                 '  -v, --version        show version\n'
                 'Subcommands:\n'
                 '  run                  start deployment\n'
+                '  list                 list latest builds\n'
                 )
 
     def help_command(self) -> None:
         print(self.help_usage())
-        sys.exit(0)
-
+        sys.exit(0) 
     def version_command(self) -> None:
         print('artifact-deployer/{}'.format(VERSION))
         sys.exit(0)
 
     def run_command(self, args: List[str]) -> None:
-        #print("run ....")
-        config_load()
-        resJob = get_job()
-        builds = [] # type: List[BuildResponse]
-        for build in resJob.get_last_builds(5):
-            builds.append(get_build(build['api']))
-            #print(build['api'])
+        RunCommand.execute()
 
-        t = Texttable()
-        rows = [['Build', 'Time', 'Status', 'Commit Id', 'Commit Message']]
-        for b in builds:
-            _status = 'success' if b.is_success() else 'failed'
-            rows.append([str(b.id()), b.time(), _status, b.commit_id(), b.commit_msg()])
-        t.add_rows(rows)
-        print('The latest build list')
-        print(t.draw()+'\n')
+    def list_command(self, args: List[str]) -> None:
+        print("sfsd")
+        ListCommand.execute()
 
     def process(self, argv: List[str]) -> None:
+        config_load()
+
         try:
             opts, args = getopt.getopt(argv, "hv ", ['help', 'version'])
         except getopt.GetoptError:
@@ -59,6 +51,8 @@ class CLI:
         if len(args):
             if args[0] == 'run':
                 self.run_command(args[1:])
+            elif args[0] == 'list':
+                self.list_command(args[1:])
             else:
                 self.help_command()
         else:
