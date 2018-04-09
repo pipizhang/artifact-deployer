@@ -49,4 +49,9 @@ class BuildResponse(JsonResponse):
     def commit_msg(self) -> str:
         return self.json['changeSets'][0]['items'][0]['msg']
 
+    def job_url(self) -> str:
+        return self.json['url']
+
+    def artifact_url(self, relative_path: str='artifact/*zip*/archive.zip') -> str:
+        return '{}{}'.format(self.job_url(), relative_path)
 
