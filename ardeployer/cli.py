@@ -33,7 +33,6 @@ class CLI:
         RunCommand.execute()
 
     def list_command(self, args: List[str]) -> None:
-        print("sfsd")
         ListCommand.execute()
 
     def process(self, argv: List[str]) -> None:

@@ -8,7 +8,6 @@ services:
         tty: true
         working_dir: /usr/src/app
         #command: python ardeployer.py run
-        command: bash
         environment:
             - JENKINS_URL=${JENKINS_URL}
             - JENKINS_JOB=${JENKINS_JOB}
