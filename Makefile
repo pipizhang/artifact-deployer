@@ -11,31 +11,31 @@ help:
 	@echo "  list               Execute list command"
 	@echo ""
 
-.PHONY: clean
+.PHONY:clean
 clean:
 	@exec rm -rf ./venv
 
-.PHONY: install
+.PHONY:install
 install:
 	@exec virtualenv --no-site-packages venv
 
-.PHONY: test
+.PHONY:test
 test:
 	@exec pytest
 
-.PHONY: run
+.PHONY:run
 run:
 	@exec python ardeployer.py run
 
-.PHONY: list
+.PHONY:list
 list:
 	@exec python ardeployer.py list
 
-.PHONY: docker-build
+.PHONY:docker-build
 docker-build:
 	exec docker build --no-cache -t peterzhang/artifact-deployer .
 
-.PHONY: docker-run
+.PHONY:docker-run
 docker-run:
 	exec docker run  -it --rm --env-file=".env" peterzhang/artifact-deployer
 
