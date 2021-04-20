@@ -10,7 +10,7 @@ more-itertools==4.1.0
 mypy==0.580
 paramiko==2.4.1
 pluggy==0.6.0
-py==1.5.3
+py==1.10.0
 pyasn1==0.4.2
 pycparser==2.18
 PyNaCl==1.2.1
